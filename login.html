@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1686/1686207.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    
+    <!-- Sign In Form -->
+    <div class="form-container sign-in-form">
+        <div class="form-box sign-in-box">
+            <h2>login</h2>
+            <form action="">
+                <div class="field">
+                    <i class="uil uil-at"></i>
+                    <input type="email" placeholder="Email ID" required/>
+                </div>
+                <div class="field">
+                    <i class="uil uil-lock-alt"></i>
+                    <input class="password-input" type="password" placeholder="password" required/>
+                    <div class="eye-btn">
+                        <i class="uil uil-eye-slash"></i>
+                    </div>
+                </div>
+                <div class="forgot-link">
+                    <a href="">forgot password?</a>
+                </div>
+                <input class="submit-btn" type="submit" value="login">
+            </form>
+            <div class="login-options">
+                <p class="text">or, login with...</p>
+                <div class="other-logins">
+                    <a href=""><img src="./login/google.png" alt="Google"></a>
+                    <a href=""><img src="./login/facebook.png" alt="FaceBook"></a>
+                    <a href=""><img src="./login/apple.png" alt="Apple"></a>
+                </div>
+            </div>
+        </div>
+        <div class="imgBox sign-in-imgBox">
+            <div class="sliding-link">
+                <p>don't have an account?</p>
+                <span class="sign-up-btn">sign Up</span>
+            </div>
+            <img src="./login/signin-img.png" alt="">
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up-form">
+        <div class="imgBox sign-up-imgBox">
+            <div class="sliding-link">
+                <p>already a member?</p>
+                <span class="sign-in-btn">sign in</span>
+            </div>
+            <img src="./login/signup-img.png" alt="">
+        </div>
+        <div class="form-box sign-up-box">
+            <h2>sign up</h2>
+            <div class="login-options">
+                <div class="other-logins">
+                    <a href=""><img src="./login/google.png" alt="Google"></a>
+                    <a href=""><img src="./login/facebook.png" alt="FaceBook"></a>
+                    <a href=""><img src="./login/apple.png" alt="Apple"></a>
+                </div>
+                <p class="text">or, sign up with email...</p>
+            </div>
+            <form action="">
+                <div class="field">
+                    <i class="uil uil-at"></i>
+                    <input type="email" placeholder="Email ID" required/>
+                </div>
+                <div class="field">
+                    <i class="uil uil-user"></i>
+                    <input type="text" placeholder="full name" required/>
+                </div>
+                <div class="field">
+                    <i class="uil uil-lock-alt"></i>
+                    <input type="password" placeholder="password" required/>
+                </div>
+                <div class="field">
+                    <i class="uil uil-lock-access"></i>
+                    <input type="password" placeholder="confirm password" required/>
+                </div>
+                <input class="submit-btn" type="submit" value="sign up">
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Form -->
+    <script>
+
+        // input fields focus effects
+        const textInputs = document.querySelectorAll("input");
+
+        textInputs.forEach(textInput => {
+            textInput.addEventListener("focus", () => {
+                let parent = textInput.parentNode;
+                parent.classList.add("active");
+            });
+
+            textInput.addEventListener("blur", () => {
+                let parent = textInput.parentNode;
+                parent.classList.remove("active");
+            });
+        });
+
+        // Password Show/Hide Button
+        const passwordInput = document.querySelector(".password-input");
+        const eyeBtn = document.querySelector(".eye-btn");
+
+        eyeBtn.addEventListener("click", () => {
+            if(passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeBtn.innerHTML = "<i class='uil uil-eye'></i>"
+            }
+            else {
+                passwordInput.type = "password";
+                eyeBtn.innerHTML = "<i class='uil uil-eye-slash'></i>"
+            }
+        });
+
+        // Sliding Between Sign In and Sign Up
+        const signUpBtn = document.querySelector(".sign-up-btn");
+        const signInBtn = document.querySelector(".sign-in-btn");
+        const signUpForm = document.querySelector(".sign-up-form");
+        const signInForm = document.querySelector(".sign-in-form");
+
+        signUpBtn.addEventListener("click", () => {
+            signInForm.classList.add("hide");
+            signUpForm.classList.add("show");
+            signInForm.classList.remove("show");
+        });
+
+        signInBtn.addEventListener("click", () => {
+            signInForm.classList.remove("hide");
+            signUpForm.classList.remove("show");
+            signInForm.classList.add("show");
+        });
+
+
+    </script>
+
+</body>
+</html>

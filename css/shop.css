@@ -1,0 +1,430 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(219, 69%, 56%);
+    --first-color-alt: hsl(219, 69%, 52%);
+    --title-color: hsl(219, 8%, 95%);
+    --text-color: hsl(219, 8%, 75%);
+    --text-color-light: hsl(219, 4%, 55%);
+    --white-color: #fff;
+    --body-color: hsl(219, 4%, 4%);
+    --container-color: hsl(219, 4%, 7%);
+    --blue: #6DD5FA;
+    --main-color: #4b33a8;
+    --gray-color: #e2e2e2;
+    --red-color: #961818;
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Exo', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+
+
+/*=============== BASE ===============*/
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    list-style: none;
+    list-style-type: none; 
+    font-family: var(--body-font);
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    display: block;
+    border-radius: 1rem;
+}
+
+body {
+    background: var(--body-color);
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea {
+    margin: 0;
+}
+
+
+/*=============== WRAPPER ===============*/
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--container-color);
+}
+
+
+/*=============== ASIDE ===============*/
+aside {
+    padding: 2rem;
+    padding-right: 0;
+    color: var(--white-color);
+    position: sticky;
+    top: 0; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.menu li a {
+    font-size: 1.2rem;
+    color: var(--white-color);
+}
+
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--white-color);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.boton-menu > i.bi-hand-index-thumb-fill,
+.boton-menu > i.bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+
+.boton-menu.active {
+    background-color: var(--white-color);
+    color: var(--container-color);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: relative;
+}
+
+.boton-menu.active::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%; right: 0;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 0 1rem 0 var(--white-color);
+}
+
+.boton-menu.active::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%; right: 0;
+    border-top-right-radius: 0.5rem;
+    box-shadow: 0 -1rem 0 var(--white-color);
+}
+
+.boton-carrito {
+    margin-top: 1rem;
+}
+
+.numerito {
+    background-color: var(--white-color);
+    color: var(--first-color);
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.boton-carrito.active .numerito {
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
+
+.texto-footer {
+    font-size: 1rem;
+}
+
+
+/*=============== MAIN ===============*/
+main {
+    background-color: var(--white-color);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.titulo-principal {
+    color: var(--container-color);
+    margin-bottom: 2rem;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.producto .producto-imagen {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+}
+
+.producto img {
+    width: 100%;
+    height: 300px;
+    max-height: 300px;
+    max-width: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.producto img:hover {
+    transform: translateY(-10px);
+}
+
+.producto-detalles {
+    background-color: var(--container-color);
+    color: var(--white-color);
+    padding: 0.5rem;
+    border-radius: 0 0 1rem 1rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.producto-titulo {
+    font-size: 1rem;
+}
+
+.producto-agregar {
+    border: 0;
+    background-color: var(--white-color);
+    color: var(--container-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid var(--white-color);
+    transition: background-color .2s, color .2s;
+}
+
+.producto-agregar:hover {
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
+
+
+
+/*=============== CARRITO ===============*/
+.contenedor-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carrito-vacio,
+.carrito-comprado {
+    color: var(--container-color);
+}
+
+.carrito-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--gray-color);
+    color: var(--container-color);
+    padding: 0.5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto-imagen {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto small {
+    font-size: 0.84rem;
+}
+
+.carrito-producto-eliminar {
+    background-color: transparent;
+    color: var(--red-color);
+}
+
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito-acciones-vaciar {
+    background-color: var(--gray-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--container-color);
+}
+
+.carrito-acciones-vaciar:hover {
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
+
+.carrito-acciones-derecha,
+.carrito-acciones-total {
+    display: flex;
+}
+
+.carrito-acciones-total {
+    background-color: var(--gray-color);
+    padding: 1rem;
+    color: var(--container-color);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    gap: 1rem;
+}
+
+.carrito-acciones-comprar {
+    background-color: var(--container-color);
+    padding: 1rem;
+    color: white;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.carrito-acciones-comprar a {
+    color: white;
+}
+
+.carrito-acciones-comprar:hover {
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
+
+.disabled {
+    display: none;
+}
+
+
+
+/*=============== FOOTER ===============*/
+
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.3rem;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.social-links .facebook {
+    border: 2px solid #4267B2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.social-links .twitter {
+    border: 2px solid #1DA1F2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.social-links .instagram {
+    border: 2px solid #E1306C;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.social-links .linkedin {
+    border: 2px solid #0e76a8;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.social-links .pinterest {
+    border: 2px solid red;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.facebook {
+    color: #4267B2;
+}
+
+.twitter {
+    color: #1DA1F2;
+}
+
+.instagram {
+    color: #E1306C;
+}
+
+.linkedin {
+    color: #0e76a8;
+}
+
+.pinterest {
+    color: red;
+}
+
+.pinterest:hover,
+.facebook:hover,
+.twitter:hover,
+.instagram:hover,
+.linkedin:hover {
+    color: white;
+    border: 2px solid white;
+}

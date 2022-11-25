@@ -1,0 +1,347 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(219, 69%, 56%);
+    --first-color-alt: hsl(219, 69%, 52%);
+    --title-color: hsl(219, 8%, 95%);
+    --text-color: hsl(219, 8%, 75%);
+    --text-color-light: hsl(219, 4%, 55%);
+    --white-color: #fff;
+    --body-color: hsl(219, 4%, 4%);
+    --container-color: hsl(219, 4%, 7%);
+    --blue: #6DD5FA;
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Exo', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+    }
+}
+
+
+/*====== Base ======*/
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--body-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*==== Form ====*/
+.form-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.form-box {
+    z-index: 999;
+    background: var(--white-color);
+    box-shadow: 0 5px 25px rgb(0 0 0 / 15%);
+    width: 350px;
+    padding: 50px 40px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.form-box .field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 25px;
+}
+
+.form-box .field.active {
+    border-bottom: 2px solid #0065FF;
+    transition: 0.3s ease;
+}
+
+.form-box .field input {
+    background: none;
+    width: 100%;
+    font-size: 1em;
+    padding-bottom: 5px;
+}
+
+.form-box .field i {
+    color: #828DA0;
+    font-size: 1.3em;
+    margin-right: 10px;
+    padding-bottom: 5px;
+}
+
+.form-box .field.active i {
+    color: #0065FF;
+    transition: 0.3s ease;
+}
+
+::placeholder {
+    color: #828DA0;
+    font-size: 0.85em;
+}
+
+.eye-btn {
+    cursor: pointer;
+}
+
+.eye-btn i:hover {
+    color: #0065FF;
+    transition: 0.3s ease;
+}
+
+.forgot-link {
+    text-align: right;
+    transform: translateY(-10px);
+}
+
+.forgot-link a {
+    color: #0065FF;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.submit-btn {
+    background: #0065FF;
+    color: var(--white-color);
+    width: 120px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 00.85em;
+    font-weight: 500;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: var(--body-color);
+    color: #0065FF;
+}
+
+.login-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-options .text {
+    color: #828DA0;
+    font-size: 0.85em;
+    margin: 25px 0px;
+}
+
+.other-logins {
+    display: flex;
+}
+
+.other-logins a {
+    border: 1px solid #CCC;
+    padding: 11px 32px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    transition: border 0.3s ease;
+    cursor: pointer;
+}
+
+.other-logins a:hover {
+    border: 1px solid #0065FF;
+}
+
+.other-logins a img {
+    width: 20px;
+}
+
+.imgBox img {
+    max-width: 270px;
+}
+
+.sliding-link {
+    display: flex;
+    font-size: 0.8em;
+    margin-bottom: 25px;
+}
+
+.sliding-link span {
+    color: #0065FF;
+    font-weight: 600;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.imgBox {
+    z-index: 888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--white-color);
+    box-shadow: 0 5px 25px rgb(0 0 0 / 15%);
+    height: 400px;
+    padding: 15px 35px;
+}
+
+.sign-in-imgBox {
+    border-radius: 0 5px 5px 0;
+}
+
+.sign-up-imgBox {
+    border-radius: 5px 0 0 5px;
+}
+
+.sign-in-form.hide .sign-in-box {
+    transform: translateX(100%);
+    visibility: hidden;
+}
+
+.sign-in-form.hide .sign-in-imgBox {
+    transform: translateX(-100%);
+    visibility: hidden;
+}
+
+.sign-in-form.show .sign-in-box,
+.sign-in-form.show .sign-in-imgBox {
+    transform: translateX(0);
+    visibility: visible;
+    transition: 0.5s ease;
+}
+
+.sign-up-form .sign-up-imgBox {
+    transform: translateX(100%);
+    visibility: hidden;
+}
+
+.sign-up-form .sign-up-box {
+    transform: translateX(-100%);
+    visibility: hidden;
+}
+
+.sign-up-form.show .sign-up-imgBox,
+.sign-up-form.show .sign-up-box {
+    transform: translateX(0);
+    visibility: visible;
+    transition: 0.5s ease;
+}
+
+@media screen and (max-width: 735px) {
+    .form-container {
+        flex-direction: column;
+        top: 0;
+        overflow: hidden;
+        padding: 30px;
+    }
+
+    .form-box {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .imgBox img {
+        max-width: 45%;
+        min-width: 180px;
+    }
+
+    .imgBox {
+        box-shadow: none;
+        width: 100%;
+        height: auto;
+        padding: 35px 35px 15px;
+    }
+
+    .sign-up-form {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .form-container {
+        font-size: 0.9rem;
+    }
+
+    .form-box {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 325px) {
+    .other-logins a {
+        padding: 9px 25px;
+        margin: 0px 3px;
+    }
+
+}

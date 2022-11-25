@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricar | Cart</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1686/1686207.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="./css/shop.css">
+</head>
+<body>
+    
+    <!-- Wrapper -->
+    <div class="wrapper">
+        
+        <aside>
+            <header>
+                <h1 class="logo">electricar shop</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="shop.html" class="boton-menu boton-volver"><i class="bi bi-arrow-return-left"></i> buy more <span class="numerito"></span></a></li>
+                    <li><a href="cart.html" class="boton-menu boton-carrito active"><i class="bi bi-cart-fill"></i> cart <span class="numerito"></span></a></li> 
+                </ul>
+            </nav>
+            <footer>
+                <div class="social-links">
+                    <a href="https://www.facebook.com" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com" class="linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.pinterest.com" class="pinterest" target="_blank"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <p class="texto-footer">© AlexGR00 2022 | all rights reserved.</p>
+            </footer>
+        </aside>
+        <main>
+            <h2 class="titulo-principal">Models</h2>
+            <div class="contenedor-carrito">
+                <p id="carrito-vacio" class="carrito-vacio">empty cart. <i class="bi bi-emoji-frown"></i></p>
+
+                <div id="carrito-productos" class="carrito-productos disabled">
+                    <!-- Esto se va a completar con el JS -->
+                </div>
+
+                <div id="carrito-acciones" class="carrito-acciones disabled">
+                    <div class="carrito-acciones-izquierda">
+                        <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">empty cart</button>
+                    </div>
+                    <div class="carrito-acciones-derecha">
+                        <div class="carrito-acciones-total">
+                            <p>Total:</p>
+                            <p id="total">0</p>
+                        </div>
+                        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar"><a href="payment.html">buy</a></button> 
+                    </div>
+                </div>
+
+                <p id="carrito-comprado" class="carrito-comprado disabled">thanks your buy was confirmed. <i class="bi bi-emoji-laughing"></i></p>
+
+            </div>
+        </main>   
+
+    </div>
+
+
+    <!-- Script -->
+    <script src="./js/shop.js"></script>
+
+</body>
+</html>

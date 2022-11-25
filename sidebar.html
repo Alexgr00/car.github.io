@@ -1,0 +1,112 @@
+<!-- Navigation Markup -->
+<input type="checkbox" name="" id="trigger">
+<nav>
+
+    <ul class="menu01">
+        <li>
+            <label for="trigger" class="trigger">
+                <i class="fas fa-bars"></i>
+            </label>
+        </li>
+        <li><i class="fas fa-home"></i></li>
+        <li><i class="fas fa-address-card"></i></li>
+        <li><i class="fas fa-fire"></i></li>
+        <li><i class="fas fa-battery-full"></i></li>
+        <li><i class="fas fa-shopping-cart"></i></li>
+        <li><i class="fas fa-user-astronaut"></i></li>
+        <li><i class="fas fa-blog"></i></li>
+    </ul>
+
+    <ul class="menu02">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#popular">Popular</a></li>
+        <li><a href="#feature">Feature</a></li>
+        <li><a href="#shop">shop</a></li>
+        <li><a href="#contact">contact</a></li>
+        <li><a href="#blog">blog</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- Navbar CSS -->
+#trigger {
+    position: absolute;
+    top: -13.3rem;
+    z-index: 10000;
+}
+
+nav {
+    position: fixed;
+    top: 2rem; right: 1.4rem;
+    z-index: 10000;
+}
+
+nav .menu01 {
+    background: #34e89e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0f3443, #34e89e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0f3443, #34e89e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 4.7rem;
+    height: 4.7rem;
+    overflow: hidden;
+    padding: 4px 0 0 0;
+    border-radius: 3.4rem;
+    transition: height 400ms cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+.trigger {
+    cursor: pointer;
+    z-index: 10000;
+}
+
+nav .menu01 li {
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    height: 3.4rem;
+    margin: 0;
+    background: transparent;
+    text-align: center;
+    margin-top: 1rem;
+    transition: background 600ms cubic-bezier(0.165,0.84,0.44,1);
+    z-index: 10000;
+}
+
+nav .menu01 li i {
+    line-height: 1.6em;
+    z-index: 10000;
+}
+
+.menu02 {
+    position: absolute;
+    top: 4.7rem;
+    transform: translateX(5000px);
+    transition: transform 400ms cubic-bezier(0.165,0.94,0.94,1);
+    cursor: pointer;
+    z-index: 10000;
+}
+
+nav .menu02 li a {
+    font-size: 1.6rem;
+    font-weight: bolder;
+    display: block;
+    width: 100%;
+    height: 3.4rem;
+    margin: 0;
+    color:  #00b09b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00b09b, #96c93d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00b09b, #96c93d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    background: transparent;
+    text-align: center;
+    line-height: 2.2em;
+    margin-top: 1rem;
+    margin-left: -1.4rem;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+nav .menu02 li a:hover {
+    color: var(--blue);
+    z-index: 10000;
+}
